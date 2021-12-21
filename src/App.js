@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Container } from "react-bootstrap";
+import { Header } from "./components/Header";
+import Navigation from "./components/Navigation";
+import Timeline from "./components/Timeline";
+import Work from "./components/Work";
+import { Rotate, Zoom } from "react-reveal";
+import Progress from "./components/Progress";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigation />
+      <Zoom left>
+        <Header />
+      </Zoom>
+      <main className="py-3">
+        <Container>
+          <Rotate top left delay={500}>
+            <Timeline />
+          </Rotate>
+          <Work />
+          <Progress />
+        </Container>
+      </main>
     </div>
   );
 }
